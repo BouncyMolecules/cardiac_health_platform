@@ -134,12 +134,14 @@ Environment Setup
 The platform uses SQLite by default (easy setup) but can be configured for PostgreSQL:
 
 python
+
 # In config/database.py
+
 DATABASE_URL = "postgresql://user:password@localhost/cardiac_health"
 Custom Biomarker Thresholds
 Modify clinical thresholds in config/settings.py:
 
-python
+
 BIOMARKER_THRESHOLDS = {
     "resting_heart_rate": {
         "normal": [(60, 100)],
@@ -189,8 +191,9 @@ Add UI components in app.py
 API Endpoints
 While primarily a Streamlit app, the architecture supports API development:
 
-python
+
 # Example future FastAPI integration
+
 @app.get("/api/patients/{patient_id}/biomarkers")
 def get_biomarkers(patient_id: str, days: int = 30):
     return clinical_service.get_patient_biomarkers(patient_id, days)
@@ -216,8 +219,6 @@ RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 8501
 CMD ["streamlit", "run", "app.py"]
-🤝 Contributing
-We welcome contributions! Please see our Contributing Guidelines for details.
 
 Development Setup:
 
@@ -269,9 +270,7 @@ Plotly for interactive visualizations
 
 🚀 Future Roadmap
 Apple HealthKit integration
-
 Machine learning risk prediction
-
 Mobile app companion
 
 EHR system integrations
